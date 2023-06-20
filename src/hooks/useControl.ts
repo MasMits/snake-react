@@ -7,22 +7,21 @@ export function useControl() {
     useEffect(() => {
         const handleKeyPress = (event: KeyboardEvent) => {
             let direction: number[] | null = null;
-
-            switch (event.key) {
-                case 'ArrowUp':
-                case 'w':
+            switch (event.keyCode) {
+                case 38: // up
+                case 87: // 'W' or 'w'
                     direction = [0, -1];
                     break;
-                case 'ArrowDown':
-                case 's':
+                case 40: // down
+                case 83: // 'S' or 's'
                     direction = [0, 1];
                     break;
-                case 'ArrowLeft':
-                case 'a':
+                case 37: // left
+                case 65: // 'A' or 'a'
                     direction = [-1, 0];
                     break;
-                case 'ArrowRight':
-                case 'd':
+                case 39: // right
+                case 68: // 'D' or 'd'
                     direction = [1, 0];
                     break;
                 default:
@@ -30,6 +29,7 @@ export function useControl() {
             }
 
             if (direction !== null ) {
+                event.preventDefault();
                 dispatch(setDir(direction));
             }
         };
