@@ -45,7 +45,7 @@ const checkCollision = (piece: number[], snk: number[][]): boolean => {
     return false;
 };
 
-const checkAppleCollision = (newSnake: number[][], apple: IApple) => {
+const checkAppleCollision = (newSnake: number[][], apple: IApple, score: number) => {
     return (dispatch: any) => {
         if (newSnake[0][0] === apple.appleCoordinate[0] && newSnake[0][1] === apple.appleCoordinate[1]) {
             switch (apple.typeOfApple) {
@@ -67,6 +67,7 @@ const checkAppleCollision = (newSnake: number[][], apple: IApple) => {
             while (checkCollision(newApple.appleCoordinate, newSnake)) {
                 newApple = createApple(apple);
             }
+            dispatch(setSpeed(SPEED - Math.floor(score/50) * SPEED/20 ));
             dispatch(setApple(newApple));
             return true;
         }
@@ -80,7 +81,7 @@ export const gameLoop = (snake: number[][], apple: IApple, dir: number[], userNa
         const newSnakeHead = [snakeCopy[0][0] + dir[0], snakeCopy[0][1] + dir[1]];
         snakeCopy.unshift(newSnakeHead);
         if (checkCollision(newSnakeHead, snake)) dispatch(endGame(userName, score));
-        if (!dispatch(checkAppleCollision(snakeCopy, apple))) snakeCopy.pop();
+        if (!dispatch(checkAppleCollision(snakeCopy, apple, score))) snakeCopy.pop();
         dispatch(setSnake(snakeCopy));
     };
 };
