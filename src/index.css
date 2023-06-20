@@ -27,5 +27,16 @@ code {
   overflow-x: hidden;
 }
 
-.game{
+@media (max-width: 768px) {
+  .game-viewer {
+    transform: scale(0.5);
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-viewer {
+    transform: scale(0.3);
+    padding: 4px;
+  }
 }

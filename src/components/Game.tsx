@@ -27,6 +27,7 @@ const Game: React.FC = () => {
                 ref={canvasRef}
                 width={`${CANVAS_SIZE[0]}px`}
                 height={`${CANVAS_SIZE[1]}px`}
+                className='game-viewer'
             />
             <ButtonGroup
                 disableElevation
