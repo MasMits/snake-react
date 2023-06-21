@@ -17,7 +17,7 @@ const playersSlice = createSlice({
         fetchPlayersSuccess: (state, action: PayloadAction<Player[]>) => {
             state.isLoading = false;
             state.error = null;
-            state.players.push(...action.payload);
+            state.players = [...action.payload];
         },
         fetchPlayersError: (state, action: PayloadAction<string>) => {
             state.isLoading = false;

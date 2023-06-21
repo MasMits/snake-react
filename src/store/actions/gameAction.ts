@@ -10,7 +10,7 @@ import {
     setSpeed
 } from "../slices/game.slice";
 import {IApple} from "../../types/gameTypes";
-import {addNewResult} from "./playersAction";
+import {addNewResult, fetchUsers} from "./playersAction";
 
 export const endGame = (userName: string, score: number) => {
     return (dispatch: any) => {
@@ -18,7 +18,7 @@ export const endGame = (userName: string, score: number) => {
         dispatch(setGameOver(true));
         const user = {name: userName, score: score}
         console.log(user);
-        addNewResult(user);
+        addNewResult(user).then(dispatch(fetchUsers()));
     }
 };
 
@@ -90,7 +90,6 @@ export const startGame = () => {
     return async (dispatch: any) => {
         dispatch(resetScore());
         dispatch(setSnake(SNAKE_START));
-        // dispatch(setApple(APPLE_START));
         dispatch(setDir([0, -1]));
         dispatch(setSpeed(SPEED));
         dispatch(setGameOver(false));
