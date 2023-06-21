@@ -1,4 +1,4 @@
-import { CANVAS_SIZE, SCALE, SNAKE_START, SPEED} from "../../utils/constants";
+import {CANVAS_SIZE, SCALE, SNAKE_START, SPEED} from "../../utils/constants";
 import {
     addScore,
     resetScore,
@@ -18,7 +18,7 @@ export const endGame = (userName: string, score: number) => {
         dispatch(setGameOver(true));
         const user = {name: userName, score: score}
         console.log(user);
-        dispatch(addNewResult(user));
+        addNewResult(user);
     }
 };
 
@@ -67,7 +67,7 @@ const checkAppleCollision = (newSnake: number[][], apple: IApple, score: number)
             while (checkCollision(newApple.appleCoordinate, newSnake)) {
                 newApple = createApple(apple);
             }
-            dispatch(setSpeed(SPEED - Math.floor(score/50) * SPEED/20 ));
+            dispatch(setSpeed(SPEED - Math.floor(score / 50) * SPEED / 20));
             dispatch(setApple(newApple));
             return true;
         }
@@ -77,7 +77,7 @@ const checkAppleCollision = (newSnake: number[][], apple: IApple, score: number)
 
 export const gameLoop = (snake: number[][], apple: IApple, dir: number[], userName: string, score: number) => {
     return (dispatch: any) => {
-         const snakeCopy = JSON.parse(JSON.stringify(snake)) as number[][];
+        const snakeCopy = JSON.parse(JSON.stringify(snake)) as number[][];
         const newSnakeHead = [snakeCopy[0][0] + dir[0], snakeCopy[0][1] + dir[1]];
         snakeCopy.unshift(newSnakeHead);
         if (checkCollision(newSnakeHead, snake)) dispatch(endGame(userName, score));

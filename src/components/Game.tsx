@@ -9,6 +9,7 @@ import {useCanvas} from "../hooks/useCanvas";
 import {useControl} from "../hooks/useControl";
 import {Button, ButtonGroup, Typography} from "@mui/material";
 import {setGameStarted, setSpeed} from "../store/slices/game.slice";
+import {fetchUsers} from "../store/actions/playersAction";
 
 const Game: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -18,6 +19,11 @@ const Game: React.FC = () => {
     useCanvas(canvasRef, snake, apple, gameOver)
     useInterval(() => dispatch(gameLoop(snake, apple, dir, userName, score)), speed);
     useControl()
+
+    const BackToHomeHandler = () => {
+        dispatch(setGameStarted(false));
+        dispatch(fetchUsers());
+    }
 
     return (
         <>
@@ -39,7 +45,7 @@ const Game: React.FC = () => {
                     <Button onClick={() => dispatch(setSpeed(null))}>Pause</Button> :
                     <Button onClick={() => dispatch(setSpeed(SPEED - Math.floor(score / 50) * SPEED / 20))}>
                         Play</Button>}
-                <Button onClick={() => dispatch(setGameStarted(false))}> Back to Start screen</Button>
+                <Button onClick={BackToHomeHandler}> Back to Start screen</Button>
             </ButtonGroup>
         </>
     );
