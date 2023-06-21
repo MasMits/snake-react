@@ -4,11 +4,11 @@ import {RootState} from "../store";
 import {useAppDispatch} from "../hooks/useAppDispatch";
 import {gameLoop, startGame} from "../store/actions/gameAction";
 import {useInterval} from "../hooks/useInterval";
-import {CANVAS_SIZE} from "../utils/constants";
+import {CANVAS_SIZE, SPEED} from "../utils/constants";
 import {useCanvas} from "../hooks/useCanvas";
 import {useControl} from "../hooks/useControl";
 import {Button, ButtonGroup, Typography} from "@mui/material";
-import {setGameStarted} from "../store/slices/game.slice";
+import {setGameStarted, setSpeed} from "../store/slices/game.slice";
 
 const Game: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -35,7 +35,11 @@ const Game: React.FC = () => {
                 aria-label="Disabled elevation buttons"
             >
                 <Button onClick={() => dispatch(startGame())}>Start Game</Button>
-                <Button onClick={() => dispatch(setGameStarted(false))}>  Back to Start screen</Button>
+                {speed ?
+                    <Button onClick={() => dispatch(setSpeed(null))}>Pause</Button> :
+                    <Button onClick={() => dispatch(setSpeed(SPEED - Math.floor(score / 50) * SPEED / 20))}>
+                        Play</Button>}
+                <Button onClick={() => dispatch(setGameStarted(false))}> Back to Start screen</Button>
             </ButtonGroup>
         </>
     );
