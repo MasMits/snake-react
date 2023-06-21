@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+<h1 style="font-size: 24px; color: #81C784;">Snake Game</h1>
+<p> <b>FRONTEND</b>:  <a href="https://github.com/MasMits/snake-react">git</a> / <a href="https://snake-react-nu.vercel.app">vercel</a></p>
+<p> <b>BACKEND</b>:  <a href="https://github.com/MasMits/snake-node-js">git</a> / <a href="https://snake-node-js.vercel.app/players">vercel</a> </p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<p style="font-size: 16px;">This is a simple Snake Game implemented using React. The game follows the classic rules, where the player controls a snake and tries to eat as many apples as possible without colliding with the walls or its own body.</p>
 
-In the project directory, you can run:
+<p><strong>Keyboard controls:</strong> The snake can be controlled using the arrow keys on the keyboard.</p>
 
-### `npm start`
+<p><strong>Score tracking:</strong> The game keeps track of the player's score, which increases with each apple eaten.</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p><strong>Game over:</strong> When the snake collides with the walls or its own body, the game ends and the player can restart.</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+<h2 style="font-size: 20px; color: #81C784;">Technologies used on FRONTEND</h2>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<ul>
+  <li>React: A JavaScript library for building user interfaces.</li>
+  <li>Redux: A predictable state container for managing application state.</li>
+  <li>MUI: A popular React UI framework for building responsive and beautiful UIs.</li>
+  <li>TypeScript: A statically-typed superset of JavaScript that enables type checking and better tooling.</li>
+  <li>CSS: Used for styling the game components.</li>
+</ul>
+<h2 style="font-size: 20px; color: #81C784;">Technologies used on BACKEND</h2>
 
-### `npm run build`
+<ul>
+  <li>Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine that allows for server-side execution of JavaScript code.</li>
+  <li>PostgreSQL: (Vercel) A powerful open-source relational database management system known for its robustness and reliability.</li>
+</ul>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2 style="font-size: 20px; color: #81C784;">Installation</h2>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p>To install the game, run the following command:</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<pre><code>npm install
+</code></pre>
 
-### `npm run eject`
+<h2 style="font-size: 20px; color: #81C784;">Usage</h2>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<p>Start the development server:</p>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<pre><code>npm start
+</code></pre>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<p>Open your browser and visit <a href="http://localhost:3000">http://localhost:3000</a> to play the game.</p>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<h2 style="font-size: 20px; color: #81C784;">How to Play</h2>
 
-## Learn More
+<ul>
+  <li>Use the arrow keys (Up, Down, Left, Right) to control the snake's direction.</li>
+  <li>The snake will move continuously in the current direction until a new direction is chosen.</li>
+  <li>The goal is to eat as many apples as possible without colliding with the walls or the snake's own body.</li>
+  <li>Each time an apple is eaten, the snake grows longer and the score increases.</li>
+  <li>The game ends when the snake collides with the walls or its own body.</li>
+</ul>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<p>Have fun playing the Snake Game! If you have any questions or feedback, please don't hesitate to reach out.</p>
