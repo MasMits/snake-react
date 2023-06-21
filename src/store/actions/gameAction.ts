@@ -10,7 +10,7 @@ import {
     setSpeed
 } from "../slices/game.slice";
 import {IApple} from "../../types/gameTypes";
-import {addNewResult, fetchUsers} from "./playersAction";
+import {addNewResult} from "./playersAction";
 
 export const endGame = (userName: string, score: number) => {
     return (dispatch: any) => {
@@ -18,7 +18,7 @@ export const endGame = (userName: string, score: number) => {
         dispatch(setGameOver(true));
         const user = {name: userName, score: score}
         console.log(user);
-        addNewResult(user).then(dispatch(fetchUsers()));
+        addNewResult(user);
     }
 };
 
