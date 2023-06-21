@@ -4,7 +4,7 @@ export const fetchUsers = () => {
     return async (dispatch: any) => {
         dispatch(fetchPlayersStart());
         try {
-            const response = await fetch(`http://localhost:3001/players`);
+            const response = await fetch(`https://snake-node-js.vercel.app/players`);
             const data = await response.json();
             console.log(data);
             dispatch(fetchPlayersSuccess(data));
@@ -18,7 +18,7 @@ export async function addNewResult(user: { name: string, score: number }) {
     const player = JSON.stringify(user)
     console.log(player)
     try {
-        const response = await fetch('http://localhost:3001/players', {
+        const response = await fetch('https://snake-node-js.vercel.app/players', {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: player,
