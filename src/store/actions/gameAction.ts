@@ -18,7 +18,7 @@ export const endGame = (userName: string, score: number) => {
         dispatch(setGameOver(true));
         const user = {name: userName, score: score}
         console.log(user);
-        addNewResult(user);
+        dispatch(addNewResult(user));
     }
 };
 
